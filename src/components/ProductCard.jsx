@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Card, CardContent, Typography, styled, Box } from '@mui/material';
+import { Card, CardContent, Typography, styled, Box, useMediaQuery } from '@mui/material';
 
-const ProductCardRoot = styled(Card)(({ theme, isHovered }) => ({
+const ProductCardRoot = styled(Card)(({ theme, isHovered, isSmallScreen }) => ({
     border: !isHovered ? '1px solid #f0f0f0' : 'none',
     borderRadius: 20,
     display: 'flex',
     flexDirection: 'column',
-    height: '100%',
+    height: isSmallScreen ? '100%' : '70vh',
     position: 'relative',
     boxShadow: isHovered ? '0px 10px 20px rgba(0, 0, 0, 0.2)' : 'none',
     zIndex: isHovered ? 1 : 'auto',
@@ -23,7 +23,7 @@ const CardActionArea = styled(CardContent)(({ theme }) => ({
     height: '100%',
 }));
 
-const Title = styled(Typography)(({theme, isHovered}) => ({
+const Title = styled(Typography)(({ theme, isHovered }) => ({
     fontSize: '1.25rem',
     fontWeight: 'bold',
     marginBottom: 20,
@@ -31,6 +31,7 @@ const Title = styled(Typography)(({theme, isHovered}) => ({
     whiteSpace: isHovered ? 'normal' : 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
+    height: isHovered ? 'auto' : '2.6em', // Fixed height for the title
 }));
 
 const DescriptionContainer = styled(Box)({
@@ -57,13 +58,14 @@ const Price = styled(Typography)({
 
 const ProductCard = ({ product }) => {
     const [isHovered, setIsHovered] = useState(false);
+    const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 
     const toggleHover = () => {
         setIsHovered(!isHovered);
     };
 
     return (
-        <ProductCardRoot onMouseEnter={toggleHover} onMouseLeave={toggleHover} isHovered={isHovered}>
+        <ProductCardRoot onMouseEnter={toggleHover} onMouseLeave={toggleHover} isHovered={isHovered} isSmallScreen={isSmallScreen}>
             <Image src={product.image} alt={product.title} />
             <CardActionArea>
                 <Title variant="h6" isHovered={isHovered}>
