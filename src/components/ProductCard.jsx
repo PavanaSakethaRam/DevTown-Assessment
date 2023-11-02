@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Card, CardContent, Typography, styled, Box, useMediaQuery } from '@mui/material';
 
 const ProductCardRoot = styled(Card)(({ theme, isHovered, isSmallScreen }) => ({
-    border: !isHovered ? '1px solid #f0f0f0' : 'none',
+    border: !isHovered ? '1px #f0f0f0' : 'none',
     borderRadius: 20,
     display: 'flex',
     flexDirection: 'column',
     height: isSmallScreen ? '100%' : '70vh',
     position: 'relative',
-    boxShadow: isHovered ? '0px 10px 20px rgba(0, 0, 0, 0.2)' : 'none',
+    boxShadow: isHovered ? '0px 10px 20px rgba(0, 0, 0, 0.2)' : '0px 2px 2px rgba(0, 0, 0, 0.1)',
     zIndex: isHovered ? 1 : 'auto',
     transition: '0.3s',
 }));
@@ -31,7 +31,7 @@ const Title = styled(Typography)(({ theme, isHovered }) => ({
     whiteSpace: isHovered ? 'normal' : 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
-    height: isHovered ? 'auto' : '2.6em', // Fixed height for the title
+    height: 'auto',
 }));
 
 const DescriptionContainer = styled(Box)({

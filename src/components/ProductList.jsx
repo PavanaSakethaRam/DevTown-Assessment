@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Container, TextField, Select, MenuItem, Box, Grid, Button, IconButton, CircularProgress } from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
-import axios from 'axios';
 import ProductCard from './ProductCard';
 import Categories from './Categories';
 import { getPageButtons } from './PaginationButtons';
+import data from './data.json';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -16,8 +16,7 @@ const ProductList = () => {
 
   const fetchProductData = async () => {
     try {
-      const response = await axios.get('https://fakestoreapi.com/products');
-      setProducts(response.data);
+      setProducts(data);
       setTimeout(() => {
         setDataLoaded(true);
       }, 1000);
@@ -79,6 +78,7 @@ const ProductList = () => {
               label="Filter by Category"
               value={filterCategory}
               onChange={handleCategoryChange}
+              color='secondary'
             >
               <MenuItem value="">All</MenuItem>
               {categories.map((category) => (
@@ -92,6 +92,7 @@ const ProductList = () => {
               onChange={handleSortChange}
               displayEmpty
               style={{ marginLeft: '8px' }}
+              color='secondary'
             >
               <MenuItem value="" disabled>
                 Sort by Price
@@ -100,7 +101,7 @@ const ProductList = () => {
               <MenuItem value="desc">Price (High to Low)</MenuItem>
             </Select>
             {sortValue && (
-              <IconButton onClick={handleClearSort} color="primary">
+              <IconButton onClick={handleClearSort} color="error">
                 <ClearIcon />
               </IconButton>
             )}
@@ -126,7 +127,7 @@ const ProductList = () => {
             <Button
               sx={{ display: { xs: 'none', sm: 'block' }}}
               variant="outlined"
-              color="primary"
+              color="error"
               onClick={() => handlePageChange(page - 1)}
               disabled={page === 1}
             >
@@ -136,7 +137,7 @@ const ProductList = () => {
             <Button
               sx={{ display: { xs: 'none', sm: 'block' }}}
               variant="outlined"
-              color="primary"
+              color="error"
               onClick={() => handlePageChange(page + 1)}
               disabled={page === pageCount}
             >
@@ -151,7 +152,7 @@ const ProductList = () => {
           alignItems="center"
           height="90vh"
         >
-          <CircularProgress size={100} thickness={2} />
+          <CircularProgress size={100} thickness={2} color='warning' />
         </Box>
       )}
     </Container>

@@ -10,7 +10,7 @@ export const getPageButtons = (currentPage, pageCount, handlePageChange) => {
         <Button
           key={i}
           variant={i === currentPage ? 'contained' : 'outlined'}
-          color="primary"
+          color="error"
           onClick={() => handlePageChange(i)}
         >
           {i}
@@ -24,7 +24,7 @@ export const getPageButtons = (currentPage, pageCount, handlePageChange) => {
           <Button
             key={i}
             variant={i === currentPage ? 'contained' : 'outlined'}
-            color="primary"
+            color="error"
             onClick={() => handlePageChange(i)}
           >
             {i}
@@ -40,7 +40,7 @@ export const getPageButtons = (currentPage, pageCount, handlePageChange) => {
         <Button
           key={pageCount}
           variant={pageCount === currentPage ? 'contained' : 'outlined'}
-          color="primary"
+          color="error"
           onClick={() => handlePageChange(pageCount)}
         >
           {pageCount}
@@ -51,7 +51,7 @@ export const getPageButtons = (currentPage, pageCount, handlePageChange) => {
         <Button
           key={1}
           variant={1 === currentPage ? 'contained' : 'outlined'}
-          color="primary"
+          color="error"
           onClick={() => handlePageChange(1)}
         >
           1
@@ -67,7 +67,7 @@ export const getPageButtons = (currentPage, pageCount, handlePageChange) => {
           <Button
             key={i}
             variant={i === currentPage ? 'contained' : 'outlined'}
-            color="primary"
+            color="error"
             onClick={() => handlePageChange(i)}
           >
             {i}
@@ -79,7 +79,7 @@ export const getPageButtons = (currentPage, pageCount, handlePageChange) => {
         <Button
           key={1}
           variant={1 === currentPage ? 'contained' : 'outlined'}
-          color="primary"
+          color="error"
           onClick={() => handlePageChange(1)}
         >
           1
@@ -95,7 +95,7 @@ export const getPageButtons = (currentPage, pageCount, handlePageChange) => {
           <Button
             key={i}
             variant={i === currentPage ? 'contained' : 'outlined'}
-            color="primary"
+            color="error"
             onClick={() => handlePageChange(i)}
           >
             {i}
@@ -111,7 +111,7 @@ export const getPageButtons = (currentPage, pageCount, handlePageChange) => {
         <Button
           key={pageCount}
           variant={pageCount === currentPage ? 'contained' : 'outlined'}
-          color="primary"
+          color="error"
           onClick={() => handlePageChange(pageCount)}
         >
           {pageCount}

@@ -2,6 +2,7 @@ import React from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import ProductList from './components/ProductList';
+import './App.css';
 
 const theme = createTheme(); // You can customize the theme if needed
 
